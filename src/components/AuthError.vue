@@ -12,11 +12,11 @@
 	</md-layout>
 </template>
 <script>
-	import * as types from '../store/mutation-types'
+	import * as userMutation from '../store/modules/user/user-mutations'
 
 	export default {
 		created: function() {
-			this.$store.commit(`user/${types.CLEAR_CURRENT_USER}`);
+			this.$store.commit(`user/${userMutation.CLEAR_CURRENT_USER}`);
 		}
 	}
 </script>

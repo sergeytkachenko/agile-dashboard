@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import * as types from '../mutation-types'
+import * as mutation from './user-mutations'
 
 const state = {
 	current: {
@@ -15,7 +15,7 @@ const actions = {
 }
 
 const mutations = {
-	[types.CLEAR_CURRENT_USER] () {
+	[mutation.CLEAR_CURRENT_USER] () {
 		Vue.localStorage.set('token', null);
 		Vue.set(state, 'current', null);
 	}

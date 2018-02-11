@@ -14,6 +14,8 @@
 	import '../less/main.less'
 	import { mapGetters, mapState } from 'vuex'
 
+	import * as sprintAction from '../store/modules/sprints/sprints-actions'
+
 	export default {
 
 		methods: {
@@ -24,6 +26,10 @@
 			goToMain() {
 				this.$router.push('/');
 			}
+		},
+
+		mounted() {
+			this.$store.dispatch(`sprints/${sprintAction.FETCH_CURRENT}`);
 		},
 
 		computed: {

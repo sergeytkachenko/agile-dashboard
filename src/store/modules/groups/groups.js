@@ -1,4 +1,4 @@
-import * as types from '../mutation-types'
+import * as mutation from './groups-mutations'
 import Vue from 'vue'
 
 const state = {
@@ -35,7 +35,7 @@ const actions = {
 
 const mutations = {
 
-	[types.SET_GROUPS] (state, { groups }) {
+	[mutation.SET_GROUPS] (state, { groups }) {
 		Vue.set(state, 'all', groups);
 	}
 }

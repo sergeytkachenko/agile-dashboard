@@ -18,7 +18,8 @@
 				<md-input-container>
 					<label for="sprint">Sprint</label>
 					<md-select name="sprint" id="sprint" v-model="task.sprint" required>
-						<md-option value="fight_club" style="width: 240px">Current</md-option>
+						<md-option :value="sprint.id"
+						           style="width: 240px" v-for="sprint in sprints">{{ sprint.name }}</md-option>
 					</md-select>
 				</md-input-container>
 			</form>
@@ -33,7 +34,9 @@
 </template>
 
 <script>
-	import { mapGetters } from 'vuex'
+	import { mapState } from 'vuex'
+
+	import * as sprintAction from '../store/modules/sprints/sprints-actions'
 
 	export default {
 
@@ -42,9 +45,14 @@
 		}),
 
 		computed: {
-			...mapGetters('tasks', {
-				taskSelected: 'selected'
-			})
+
+			...mapState({
+				sprints: state => state.sprints.all
+			}),
+		},
+
+		mounted() {
+			this.$store.dispatch(`sprints/${sprintAction.FETCH_ALL}`);
 		},
 
 		methods: {

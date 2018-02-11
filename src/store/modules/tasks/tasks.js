@@ -1,4 +1,5 @@
-import * as types from '../mutation-types'
+import * as mutation from './tasks-mutations'
+import * as action from './tasks-actions'
 import Vue from 'vue'
 
 const description = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, 
@@ -117,24 +118,24 @@ const getters = {
 
 const actions = {
 
-}
+};
 
 const mutations = {
 
-	[types.SET_ALL_TASKS] (state, { tasks }) {
+	[mutation.SET_ALL_TASKS] (state, { tasks }) {
 		Vue.set(state, 'all', tasks);
 	},
 
-	[types.SELECTED_TASKS] (state, { taskId }) {
+	[mutation.SELECTED_TASKS] (state, { taskId }) {
 		Vue.set(state.all[taskId], 'selected', true);
 	},
 
-	[types.DESELECT_TASKS] (state) {
+	[mutation.DESELECT_TASKS] (state) {
 		const keys = Object.keys(state.all);
 		keys.forEach(taskId => Vue.set(state.all[taskId], 'selected', false));
 	},
 
-	[types.SET_TASKS_FROM_ARRAY] (state, { tasks, group }) {
+	[mutation.SET_TASKS_FROM_ARRAY] (state, { tasks, group }) {
 		const newTasks = {};
 		tasks.forEach(task => {
 			const featureId = task.id;

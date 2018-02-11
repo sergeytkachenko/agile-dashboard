@@ -23,7 +23,7 @@
 
 <script>
 	import { mapGetters } from 'vuex'
-	import * as types from '../store/mutation-types'
+	import * as tasksMutation from '../store/modules/tasks/tasks-mutations'
 
 	export default {
 		components: {},
@@ -35,7 +35,7 @@
 
 		methods: {
 			close: function() {
-				this.$store.commit(`tasks/${types.DESELECT_TASKS}`);
+				this.$store.commit(`tasks/${tasksMutation.DESELECT_TASKS}`);
 			}
 		}
 	}

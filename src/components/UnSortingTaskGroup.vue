@@ -14,7 +14,7 @@
 <script>
 	import Task from '../components/Task.vue'
 	import draggable from 'vuedraggable'
-	import * as types from '../store/mutation-types'
+	import * as tasksMutation from '../store/modules/tasks/tasks-mutations'
 
 	export default {
 
@@ -26,7 +26,7 @@
 				},
 
 				set(tasks) {
-					this.$store.commit(`tasks/${types.SET_TASKS_FROM_ARRAY}`, { tasks, group: undefined });
+					this.$store.commit(`tasks/${tasksMutation.SET_TASKS_FROM_ARRAY}`, { tasks, group: undefined });
 				}
 			}
 		},

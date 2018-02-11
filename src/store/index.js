@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as actions from './actions'
 import * as getters from './getters'
-import groups from './modules/groups'
-import tasks from './modules/tasks'
-import sprints from './modules/sprints'
-import voting from './modules/voting'
-import user from './modules/user'
+import groups from './modules/groups/groups'
+import tasks from './modules/tasks/tasks'
+import sprints from './modules/sprints/sprints'
+import voting from './modules/voting/voting'
+import user from './modules/user/user'
 
 Vue.use(Vuex)
 

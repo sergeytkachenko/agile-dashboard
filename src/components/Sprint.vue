@@ -10,9 +10,10 @@
 </template>
 
 <script>
+	import { mapGetters } from 'vuex'
+
 	import CardBoard from '../components/CardBoard.vue'
 	import CardInfo from '../components/CardInfo.vue'
-	import { mapGetters } from 'vuex'
 
 	export default {
 
