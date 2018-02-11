@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import * as actions from './actions'
 import * as getters from './getters'
 import groups from './modules/groups'
-import features from './modules/features'
+import tasks from './modules/tasks'
 import sprints from './modules/sprints'
 import voting from './modules/voting'
 import user from './modules/user'
@@ -15,7 +15,7 @@ export default new Vuex.Store({
 	getters,
 	modules: {
 		groups,
-		features,
+		tasks,
 		sprints,
 		user,
 		voting

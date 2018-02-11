@@ -31,21 +31,6 @@ const getters = {
 
 const actions = {
 
-	loadByVoting: function({ commit }, { votingId }) {
-		Vue.http.get(`/voting/${votingId}/interview`).then(res => {
-			const groupsData = {};
-			const data = res.body;
-			const groups = new Map(Object.values(data.groups));
-			groups.forEach(group => {
-				delete group.features;
-				groupsData[group.id] = group;
-			});
-			commit(types.SET_GROUPS, { groups: groupsData });
-		}).catch(res => {
-			console.debug(res);
-			commit(types.SET_GROUPS, { groups: {} });
-		});
-	}
 }
 
 const mutations = {

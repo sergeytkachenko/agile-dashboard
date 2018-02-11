@@ -1,9 +1,9 @@
 <template>
 	<md-layout md-gutter>
-		<md-layout :md-flex="featureSelected ? 80: 100">
+		<md-layout :md-flex="taskSelected ? 80: 100">
 			<card-board></card-board>
 		</md-layout>
-		<md-layout md-flex="20" v-if="featureSelected">
+		<md-layout md-flex="20" v-if="taskSelected">
 			<card-info></card-info>
 		</md-layout>
 	</md-layout>
@@ -22,8 +22,8 @@
 		},
 
 		computed: {
-			...mapGetters('features', {
-				featureSelected: 'selected'
+			...mapGetters('tasks', {
+				taskSelected: 'selected'
 			})
 		},
 

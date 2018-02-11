@@ -100,14 +100,14 @@ const getters = {
 		return values.find(f => f.selected);
 	},
 
-	features: state => group => {
-		const features = Object.values(state.all);
-		return features.filter(f => f.groupId === group.id);
+	tasks: state => group => {
+		const tasks = Object.values(state.all);
+		return tasks.filter(f => f.groupId === group.id);
 	},
 
-	unSortingFeatures: state => {
-		const features = Object.values(state.all);
-		return features.filter(f => !f.groupId);
+	unSortingTasks: state => {
+		const tasks = Object.values(state.all);
+		return tasks.filter(f => !f.groupId);
 	},
 
 	toArray: state => {
@@ -117,49 +117,32 @@ const getters = {
 
 const actions = {
 
-	loadByVoting: function({ commit }, { votingId }) {
-		Vue.http.get(`/voting/${votingId}/interview`).then(res => {
-			const featuresData = {};
-			const data = res.body;
-			const groups = new Map(Object.values(data.groups));
-			groups.forEach(group => {
-				const features = new Map(Object.values(group.features));
-				features.forEach(feature => {
-					featuresData[feature.id] = Object.assign({ groupId: group.id }, feature);
-				});
-			});
-			commit(types.SET_ALL_FEATURES, { features: featuresData });
-		}).catch(res => {
-			console.debug(res);
-			commit(types.SET_ALL_FEATURES, { features: {} });
-		});
-	}
 }
 
 const mutations = {
 
-	[types.SET_ALL_FEATURES] (state, { features }) {
-		Vue.set(state, 'all', features);
+	[types.SET_ALL_TASKS] (state, { tasks }) {
+		Vue.set(state, 'all', tasks);
 	},
 
-	[types.SELECTED_FEATURE] (state, { featureId }) {
-		Vue.set(state.all[featureId], 'selected', true);
+	[types.SELECTED_TASKS] (state, { taskId }) {
+		Vue.set(state.all[taskId], 'selected', true);
 	},
 
-	[types.DESELECT_FEATURES] (state) {
+	[types.DESELECT_TASKS] (state) {
 		const keys = Object.keys(state.all);
-		keys.forEach(featureId => Vue.set(state.all[featureId], 'selected', false));
+		keys.forEach(taskId => Vue.set(state.all[taskId], 'selected', false));
 	},
 
-	[types.SET_FEATURES_FROM_ARRAY] (state, { features, group }) {
-		const newFeatures = {};
-		features.forEach(feature => {
-			const featureId = feature.id;
-			newFeatures[featureId] = feature;
-			newFeatures[featureId].groupId = group ? group.id : undefined;
+	[types.SET_TASKS_FROM_ARRAY] (state, { tasks, group }) {
+		const newTasks = {};
+		tasks.forEach(task => {
+			const featureId = task.id;
+			newTasks[featureId] = task;
+			newTasks[featureId].groupId = group ? group.id : undefined;
 			delete state.all[featureId];
 		});
-		Vue.set(state, 'all', Object.assign({}, state.all, newFeatures));
+		Vue.set(state, 'all', Object.assign({}, state.all, newTasks));
 	}
 }
 

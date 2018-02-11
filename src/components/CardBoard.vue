@@ -1,18 +1,18 @@
 <template>
 	<md-layout>
 		<md-layout class="card-group" v-if="isShowUnSortingFeatures">
-			<un-sorting-feature-group :drop-id="everywhere"></un-sorting-feature-group>
+			<un-sorting-task-group :drop-id="everywhere"></un-sorting-task-group>
 		</md-layout>
 		<md-layout class="card-group" v-for="group in groups" :key="group.id" :item="group">
-			<feature-group :group="group" :drop-id="getGroupDrop(group)"></feature-group>
+			<task-group :group="group" :drop-id="getGroupDrop(group)"></task-group>
 		</md-layout>
 	</md-layout>
 </template>
 
 <script>
 	import { mapState, mapGetters } from 'vuex'
-	import FeatureGroup from '../components/FeatureGroup.vue'
-	import UnSortingFeatureGroup from '../components/UnSortingFeatureGroup.vue'
+	import TaskGroup from '../components/TaskGroup.vue'
+	import UnSortingTaskGroup from '../components/UnSortingTaskGroup.vue'
 
 	import '../less/card-board.less';
 
@@ -44,8 +44,8 @@
 		},
 
 		components: {
-			FeatureGroup,
-			UnSortingFeatureGroup
+			TaskGroup,
+			UnSortingTaskGroup
 		}
 	}
 </script>

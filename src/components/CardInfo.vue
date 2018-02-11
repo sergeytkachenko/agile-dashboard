@@ -3,7 +3,7 @@
 		<md-card-header>
 			<md-layout>
 				<md-layout>
-					<div class="md-title">{{ featureSelected.name }}</div>
+					<div class="md-title">{{ taskSelected.name }}</div>
 				</md-layout>
 				<md-layout md-align="end" md-vertical-align="start">
 					<md-button md-theme="orange"
@@ -16,7 +16,7 @@
 		</md-card-header>
 
 		<md-card-content>
-			{{ featureSelected.description }}
+			{{ taskSelected.description }}
 		</md-card-content>
 	</md-card>
 </template>
@@ -28,14 +28,14 @@
 	export default {
 		components: {},
 		computed: {
-			...mapGetters('features', {
-				featureSelected: 'selected'
+			...mapGetters('tasks', {
+				taskSelected: 'selected'
 			})
 		},
 
 		methods: {
 			close: function() {
-				this.$store.commit(`features/${types.DESELECT_FEATURES}`);
+				this.$store.commit(`tasks/${types.DESELECT_TASKS}`);
 			}
 		}
 	}
