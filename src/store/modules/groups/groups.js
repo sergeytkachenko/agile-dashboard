@@ -4,24 +4,7 @@ import * as action from './groups-actions'
 
 
 const state = {
-	all: {
-		'id1': {
-			id: 'group1',
-			name: 'DEV'
-		},
-		'id2': {
-			id: 'group2',
-			name: 'TESTING'
-		},
-		'id3': {
-			id: 'group3',
-			name: 'CODE REVIEW'
-		},
-		'id4': {
-			id: 'group4',
-			name: 'DONE'
-		}
-	}
+	all: {}
 }
 
 const getters = {
