@@ -14,6 +14,7 @@
 
 	import CardBoard from '../components/CardBoard.vue'
 	import CardInfo from '../components/CardInfo.vue'
+	import * as groupAction from '../store/modules/groups/groups-actions'
 
 	export default {
 
@@ -26,6 +27,11 @@
 			...mapGetters('tasks', {
 				taskSelected: 'selected'
 			})
+		},
+
+		mounted() {
+			this.$store.dispatch(`groups/${groupAction.FETCH_ALL}`);
+			this.$store.dispatch(`tasks/${groupAction.FETCH_ALL}`);
 		},
 
 		components: {

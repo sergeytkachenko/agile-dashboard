@@ -9,7 +9,7 @@
 			<form novalidate @submit.stop.prevent="submit">
 				<md-input-container>
 					<label>Task title</label>
-					<md-input required v-model="task.title"></md-input>
+					<md-input required v-model="task.name"></md-input>
 				</md-input-container>
 				<md-input-container>
 					<label>Task description</label>
@@ -17,7 +17,7 @@
 				</md-input-container>
 				<md-input-container>
 					<label for="sprint">Sprint</label>
-					<md-select name="sprint" id="sprint" v-model="task.sprint" required>
+					<md-select name="sprint" id="sprint" v-model="task.sprintId" required>
 						<md-option :value="sprint.id"
 						           style="width: 240px" v-for="sprint in sprints">{{ sprint.name }}</md-option>
 					</md-select>
@@ -34,21 +34,25 @@
 </template>
 
 <script>
-	import { mapState } from 'vuex'
+	import { mapState, mapGetters } from 'vuex'
 
 	import * as sprintAction from '../store/modules/sprints/sprints-actions'
+	import * as taskAction from '../store/modules/tasks/tasks-actions'
 
 	export default {
 
-		data: () => ({
-			task: {}
-		}),
-
 		computed: {
+			...mapGetters('tasks', {
+				byId: 'byId'
+			}),
 
 			...mapState({
 				sprints: state => state.sprints.all
 			}),
+
+			task() {
+				return this.byId(this.taskId) || {};
+			}
 		},
 
 		mounted() {
@@ -58,7 +62,16 @@
 		methods: {
 			cancel: function() {
 				this.$router.back();
+			},
+
+			save() {
+				const action = this.task.id ? `tasks/${taskAction.SAVE}` : `tasks/${taskAction.ADD}`;
+				this.$store.dispatch(action, this.task).then(() => {
+					this.$router.back();
+				});
 			}
-		}
+		},
+
+		props: ['taskId']
 	}
 </script>

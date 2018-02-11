@@ -15,6 +15,7 @@
 <script>
 	import Task from '../components/Task.vue'
 	import draggable from 'vuedraggable'
+	import * as tasksAction from '../store/modules/tasks/tasks-actions'
 	import * as tasksMutation from '../store/modules/tasks/tasks-mutations'
 
 	export default {
@@ -28,6 +29,11 @@
 				},
 
 				set(tasks) {
+					tasks.forEach((task, index) => {
+						task.index = index;
+						task.groupId = this.group.id;
+					});
+					this.$store.dispatch(`tasks/${tasksAction.SAVE_ALL}`, tasks);
 					this.$store.commit(`tasks/${tasksMutation.SET_TASKS_FROM_ARRAY}`, { tasks, group: this.group });
 				}
 			}

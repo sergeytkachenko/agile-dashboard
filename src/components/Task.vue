@@ -1,5 +1,6 @@
 <template>
 	<md-card @click.native="click"
+	         @dblclick.native="dblClick"
 	         :class="{ selected: taskSelected && taskSelected.id === task.id }">
 		<md-card-content>
 			{{ task.name }}
@@ -21,9 +22,13 @@
 		},
 
 		methods: {
-			click: function(event) {
+			click: function() {
 				this.$store.commit(`tasks/${tasksMutation.DESELECT_TASKS}`);
 				this.$store.commit(`tasks/${tasksMutation.SELECTED_TASKS}`, { taskId: this.task.id });
+			},
+
+			dblClick() {
+				this.$router.push(`/task/edit/${this.taskSelected.id}`);
 			}
 		},
 

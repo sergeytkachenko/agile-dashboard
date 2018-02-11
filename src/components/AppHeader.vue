@@ -20,7 +20,7 @@
 
 		methods: {
 			createTask: function() {
-				this.$router.push(`/task/create`);
+				this.$router.push(`/task/edit/new`);
 			},
 
 			goToMain() {
