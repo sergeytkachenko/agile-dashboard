@@ -5,19 +5,19 @@ const state = {
 	all: {
 		'id1': {
 			id: 'group1',
-			name: 'group 1'
+			name: 'DEV'
 		},
 		'id2': {
 			id: 'group2',
-			name: 'group 2'
+			name: 'TESTING'
 		},
 		'id3': {
 			id: 'group3',
-			name: 'group 3'
+			name: 'CODE REVIEW'
 		},
 		'id4': {
 			id: 'group4',
-			name: 'group 4'
+			name: 'DONE'
 		}
 	}
 }

@@ -1,11 +1,14 @@
 <template>
-	<draggable class="task"
-	           v-model="sortingData"
-	           @start="drag=true"
-	           @end="drag=false"
-	           :options="{group: dropId}">
-		<task v-for="task in sortingData" :task="task"></task>
-	</draggable>
+	<div class="task-group-wrap">
+		<div class="task-group-title">TO DO</div>
+		<draggable class="task"
+		           v-model="sortingData"
+		           @start="drag=true"
+		           @end="drag=false"
+		           :options="{group: dropId}">
+			<task v-for="task in sortingData" :task="task"></task>
+		</draggable>
+	</div>
 </template>
 
 <script>

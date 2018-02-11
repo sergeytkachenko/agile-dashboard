@@ -1,12 +1,12 @@
 <template>
 	<md-toolbar>
-		<md-button class="md-icon-button">
+		<md-button class="md-icon-button" @click.native="goToMain">
 			<md-icon>menu</md-icon>
 		</md-button>
 
 		<h2 class="md-title" style="flex: 1">{{ sprint.name }}</h2>
 
-		<md-button class="md-raised md-accent" @click.native="save" v-if="user">Save</md-button>
+		<md-button class="md-raised md-accent" @click.native="createTask" v-if="user">Create task</md-button>
 	</md-toolbar>
 </template>
 
@@ -17,9 +17,12 @@
 	export default {
 
 		methods: {
-			save: function() {
-				// TODO send to real path url
-				this.$http.post('/save', { features: this.features });
+			createTask: function() {
+				this.$router.push(`/task/create`);
+			},
+
+			goToMain() {
+				this.$router.push('/');
 			}
 		},
 
@@ -30,8 +33,8 @@
 				sprint: state => state.sprints.current
 			}),
 
-			...mapGetters('features', {
-				features: 'toArray'
+			...mapGetters('tasks', {
+				tasks: 'toArray'
 			})
 		},
 

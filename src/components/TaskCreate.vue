@@ -1,0 +1,56 @@
+<template>
+	<md-card>
+		<md-card-content>
+			<md-button @click.native="cancel" class="back">
+				<md-icon>keyboard_backspace</md-icon>
+				Back to sprint
+			</md-button>
+
+			<form novalidate @submit.stop.prevent="submit">
+				<md-input-container>
+					<label>Task title</label>
+					<md-input required v-model="task.title"></md-input>
+				</md-input-container>
+				<md-input-container>
+					<label>Task description</label>
+					<md-textarea required v-model="task.description"></md-textarea>
+				</md-input-container>
+				<md-input-container>
+					<label for="sprint">Sprint</label>
+					<md-select name="sprint" id="sprint" v-model="task.sprint" required>
+						<md-option value="fight_club" style="width: 240px">Current</md-option>
+					</md-select>
+				</md-input-container>
+			</form>
+		</md-card-content>
+
+		<md-card-actions>
+			<md-button class="md-raised" @click.native="cancel">Cancel</md-button>
+			<md-button class="md-raised md-accent" @click.native="save" style="margin-left: 16px">Save</md-button>
+		</md-card-actions>
+
+	</md-card>
+</template>
+
+<script>
+	import { mapGetters } from 'vuex'
+
+	export default {
+
+		data: () => ({
+			task: {}
+		}),
+
+		computed: {
+			...mapGetters('tasks', {
+				taskSelected: 'selected'
+			})
+		},
+
+		methods: {
+			cancel: function() {
+				this.$router.back();
+			}
+		}
+	}
+</script>

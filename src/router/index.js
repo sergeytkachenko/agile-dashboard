@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Sprint from '@/components/Sprint'
+import TaskCreate from '@/components/TaskCreate'
 import AuthError from '@/components/AuthError'
 
 Vue.use(Router)
@@ -16,6 +17,11 @@ export default new Router({
 			name: 'index',
 			component: Sprint,
 			props: true
+		},
+		{
+			path: '/task/create',
+			name: 'task.create',
+			component: TaskCreate
 		},
 		{
 			path: '/auth-error',
