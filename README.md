@@ -1,6 +1,4 @@
-# card-sort
-
-> BPM 
+# VUE Agile dashboard FREE UI
 
 ![example](http://joxi.net/L21QJoPU6Og3z2.jpg)
 
