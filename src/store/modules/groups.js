@@ -14,6 +14,10 @@ const state = {
 		'id3': {
 			id: 'group3',
 			name: 'group 3'
+		},
+		'id4': {
+			id: 'group4',
+			name: 'group 4'
 		}
 	}
 }
