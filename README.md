@@ -1,6 +1,6 @@
 # VUE Agile dashboard FREE UI
 
-![example](http://joxi.net/L21QJoPU6Og3z2.jpg)
+![example](http://dl4.joxi.net/drive/2018/02/11/0024/3416/1621336/36/15beeeaf1c.jpg)
 
 ## Build Setup
 
