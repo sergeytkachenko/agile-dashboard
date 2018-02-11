@@ -23,7 +23,7 @@
 				},
 
 				set(tasks) {
-					this.$store.commit(`features/${types.SET_TASKS_FROM_ARRAY}`, { tasks, group: undefined });
+					this.$store.commit(`tasks/${types.SET_TASKS_FROM_ARRAY}`, { tasks, group: undefined });
 				}
 			}
 		},

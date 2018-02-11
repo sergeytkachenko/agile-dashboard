@@ -3,7 +3,7 @@
 		<div class="task-group-title">
 			{{ group.name  }}
 		</div>
-		<draggable class="task" v-model="sortingData"
+		<draggable class="task task-draggable" v-model="sortingData"
 		           @start="drag=true"
 		           @end="drag=false"
 		           :options="{group: dropId}">
