@@ -10,6 +10,24 @@
 	}
 }
 
-.feature {
+.feature, .feature-group-wrap {
 	flex: 1;
 }
+
+.feature-group-wrap {
+	padding-top: 30px;
+	position: relative;
+
+	.feature-group-title {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 30px;
+		width: 100%;
+		background-color: #ccc;
+		padding: 5px 16px;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+}
+

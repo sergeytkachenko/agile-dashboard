@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Voting from '@/components/Voting'
+import Sprint from '@/components/Sprint'
 import AuthError from '@/components/AuthError'
 
 Vue.use(Router)
@@ -9,12 +9,12 @@ export default new Router({
 	routes: [
 		{
 			path: '',
-			redirect: '/voting/8db272e0-526d-42f0-8f17-6a02241e88a5'
+			redirect: '/sprint/8db272e0-526d-42f0-8f17-6a02241e88a5'
 		},
 		{
-			path: '/voting/:votingId',
+			path: '/sprint/:sprintId',
 			name: 'index',
-			component: Voting,
+			component: Sprint,
 			props: true
 		},
 		{

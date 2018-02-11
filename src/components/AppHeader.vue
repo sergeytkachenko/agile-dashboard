@@ -4,7 +4,7 @@
 			<md-icon>menu</md-icon>
 		</md-button>
 
-		<h2 class="md-title" style="flex: 1">{{ title }}</h2>
+		<h2 class="md-title" style="flex: 1">{{ sprint.name }}</h2>
 
 		<md-button class="md-raised md-accent" @click.native="save" v-if="user">Save</md-button>
 	</md-toolbar>
@@ -26,7 +26,8 @@
 		computed: {
 
 			...mapState({
-				user: state => state.user.current
+				user: state => state.user.current,
+				sprint: state => state.sprints.current
 			}),
 
 			...mapGetters('features', {

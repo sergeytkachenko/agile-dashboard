@@ -33,7 +33,7 @@
 		},
 
 		props: [
-			'votingId'
+			'sprintId'
 		]
 	}
 </script>
