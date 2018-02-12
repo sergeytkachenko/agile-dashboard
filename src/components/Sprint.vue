@@ -37,10 +37,6 @@
 		components: {
 		  CardBoard,
 		  CardInfo
-		},
-
-		props: [
-			'sprintId'
-		]
+		}
 	}
 </script>

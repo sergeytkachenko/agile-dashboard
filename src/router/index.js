@@ -10,7 +10,7 @@ const router = new Router({
 	routes: [
 		{
 			path: '',
-			redirect: '/sprint/8db272e0-526d-42f0-8f17-6a02241e88a5'
+			redirect: '/sprint/current'
 		},
 		{
 			name: 'login',
@@ -18,8 +18,8 @@ const router = new Router({
 			component: Login
 		},
 		{
-			path: '/sprint/:sprintId',
-			name: 'index',
+			path: '/sprint/current',
+			name: 'sprint',
 			component: Sprint,
 			props: true
 		},
