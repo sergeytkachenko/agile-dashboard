@@ -1,8 +1,11 @@
 # VUE Agile dashboard FREE UI
 
 ## demo
-http://18.219.65.169/
+login - test
 
+password - sergey
+
+http://18.219.65.169/ - demo page
 
 ![example](http://joxi.net/brRJnZWtQWnQqr.jpg)
 
