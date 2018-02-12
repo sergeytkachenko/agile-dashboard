@@ -1,1 +1,2 @@
+export const SET_CURRENT = 'SET_CURRENT';
 export const CLEAR_CURRENT_USER = 'CLEAR_CURRENT_USER';

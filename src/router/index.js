@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Sprint from '@/components/Sprint'
 import TaskEdit from '@/components/TaskEdit'
-import AuthError from '@/components/AuthError'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -11,6 +11,11 @@ export default new Router({
 		{
 			path: '',
 			redirect: '/sprint/8db272e0-526d-42f0-8f17-6a02241e88a5'
+		},
+		{
+			name: 'login',
+			path: '/login',
+			component: Login
 		},
 		{
 			path: '/sprint/:sprintId',
@@ -27,7 +32,7 @@ export default new Router({
 		{
 			path: '/auth-error',
 			name: 'auth-error',
-			component: AuthError
+			component: Login
 		}
 	]
 })

@@ -4,9 +4,13 @@
 			<md-icon>menu</md-icon>
 		</md-button>
 
-		<h2 class="md-title" style="flex: 1">{{ sprint.name }}</h2>
+		<h2 class="md-title"
+		    v-if="user.login"
+		    style="flex: 1">{{ sprint.name }}</h2>
 
-		<md-button class="md-raised md-accent" @click.native="createTask" v-if="user">Create task</md-button>
+		<md-button v-if="user.login"
+		           class="md-raised md-accent"
+		           @click.native="createTask">Create task</md-button>
 	</md-toolbar>
 </template>
 
