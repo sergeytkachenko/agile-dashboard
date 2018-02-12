@@ -8,13 +8,16 @@ const description = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. O
 
 const state = {
 	all: {}
-}
+};
 
 const getters = {
 
 	selected: state => {
 		const values = Object.values(state.all);
-		return values.find(f => f.selected);
+		const found = values.find(f => f.selected);
+		if (found) {
+			return state.all[found.id];
+		}
 	},
 
 	byId: state => id => {
@@ -68,6 +71,13 @@ const actions = {
 			.then(res => {
 				const task = res.body;
 				commit(mutation.ADD, task);
+			});
+	},
+
+	[action.REMOVE]: function ({ commit }, id) {
+		return Vue.http.delete(`/api/task/remove/${id}`)
+			.then(() => {
+				commit(mutation.REMOVE_TASK, id);
 			});
 	},
 
@@ -133,6 +143,10 @@ const mutations = {
 
 	[mutation.CHANGE] (state, task) {
 		Vue.set(state.all, task.id, task);
+	},
+
+	[mutation.REMOVE_TASK] (state, id) {
+		Vue.delete(state.all, id);
 	}
 }
 

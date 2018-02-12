@@ -2,11 +2,11 @@
 	<div class="task-group-wrap">
 		<div class="task-group-title">TO DO</div>
 		<draggable class="task task-draggable"
-		           v-model="sortingData"
+		           v-model="tasksSorting"
 		           @start="drag=true"
 		           @end="drag=false"
 		           :options="{group: dropId}">
-			<task v-for="task in sortingData" :task="task"></task>
+			<task v-for="task in tasksSorting" :task="task"></task>
 		</draggable>
 	</div>
 </template>
@@ -20,7 +20,7 @@
 	export default {
 
 		computed: {
-			sortingData: {
+			tasksSorting: {
 
 				get() {
 					return this.$store.getters['tasks/unSortingTasks'];

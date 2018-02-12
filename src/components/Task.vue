@@ -22,6 +22,7 @@
 		},
 
 		methods: {
+
 			click: function() {
 				this.$store.commit(`tasks/${tasksMutation.DESELECT_TASKS}`);
 				this.$store.commit(`tasks/${tasksMutation.SELECTED_TASKS}`, { taskId: this.task.id });

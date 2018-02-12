@@ -2,17 +2,20 @@
 	<div class="task-group-wrap">
 		<div class="task-group-title">
 			{{ group.name  }}
+			({{ tasksSorting.length }})
 		</div>
-		<draggable class="task task-draggable" v-model="sortingData"
+		<draggable class="task task-draggable"
+		           v-model="tasksSorting"
 		           @start="drag=true"
 		           @end="drag=false"
 		           :options="{group: dropId}">
-			<task v-for="task in sortingData" :task="task"></task>
+			<task v-for="task in tasksSorting" :task="task"></task>
 		</draggable>
 	</div>
 </template>
 
 <script>
+	import { mapGetters } from 'vuex'
 	import Task from '../components/Task.vue'
 	import draggable from 'vuedraggable'
 	import * as tasksAction from '../store/modules/tasks/tasks-actions'
@@ -21,11 +24,15 @@
 	export default {
 
 		computed: {
-			sortingData: {
+
+			...mapGetters('tasks', {
+				tasks: 'tasks'
+			}),
+
+			tasksSorting: {
 
 				get() {
-					let tasks = this.$store.getters['tasks/tasks'];
-					return tasks(this.group);
+					return this.tasks(this.group);
 				},
 
 				set(tasks) {

@@ -18,18 +18,13 @@
 
 	export default {
 
-		created: function() {
-			//this.$store.dispatch('groups/loadByVoting', { votingId: this.votingId })
-			//this.$store.dispatch('features/loadByVoting', { votingId: this.votingId })
-		},
-
 		computed: {
 			...mapGetters('tasks', {
 				taskSelected: 'selected'
 			})
 		},
 
-		mounted() {
+		created() {
 			this.$store.dispatch(`groups/${groupAction.FETCH_ALL}`);
 			this.$store.dispatch(`tasks/${groupAction.FETCH_ALL}`);
 		},
