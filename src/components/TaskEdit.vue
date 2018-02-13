@@ -22,6 +22,9 @@
 						           style="width: 240px" v-for="sprint in sprints">{{ sprint.name }}</md-option>
 					</md-select>
 				</md-input-container>
+				<input-tag
+					placeholder="Tags"
+					:tags.sync="task.tags"></input-tag>
 			</form>
 		</md-card-content>
 
@@ -35,6 +38,8 @@
 
 <script>
 	import { mapState, mapGetters } from 'vuex'
+
+	import InputTag from 'vue-input-tag'
 
 	import * as sprintAction from '../store/modules/sprints/sprints-actions'
 	import * as taskAction from '../store/modules/tasks/tasks-actions'
@@ -51,7 +56,9 @@
 			}),
 
 			task() {
-				return this.byId(this.taskId) || {};
+				const task = this.byId(this.taskId) || {};
+				task.tags = task.tags || [];
+				return task;
 			}
 		},
 
@@ -72,6 +79,10 @@
 			}
 		},
 
-		props: ['taskId']
+		props: ['taskId'],
+
+		components: {
+			InputTag
+		}
 	}
 </script>

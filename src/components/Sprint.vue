@@ -8,7 +8,6 @@
 		</md-layout>
 	</md-layout>
 </template>
-
 <script>
 	import { mapGetters } from 'vuex'
 
@@ -17,7 +16,6 @@
 	import * as groupAction from '../store/modules/groups/groups-actions'
 
 	export default {
-
 		computed: {
 			...mapGetters('tasks', {
 				taskSelected: 'selected'

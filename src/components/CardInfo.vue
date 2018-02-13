@@ -2,7 +2,7 @@
 	<md-card style="flex: 1">
 		<md-card-header>
 			<md-layout>
-				<md-layout>
+				<md-layout class="header-title" md-flex="60">
 					<div class="md-title">{{ taskSelected.name }}</div>
 				</md-layout>
 				<md-layout md-align="end" md-vertical-align="start">
@@ -38,6 +38,11 @@
 		<md-card-content>
 			{{ taskSelected.description }}
 		</md-card-content>
+
+		<md-card-actions style="padding-right: 15px;">
+			<span class="tag"
+			      v-for="tag in taskSelected.tags">{{ tag }}</span>
+		</md-card-actions>
 	</md-card>
 </template>
 
@@ -81,7 +86,13 @@
 		}
 	}
 </script>
-<style>
+<style scoped>
+	.header-title, .md-title {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
 	.close-btn {
 		position: relative;
 		top: -5px;

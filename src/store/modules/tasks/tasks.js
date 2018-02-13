@@ -82,7 +82,7 @@ const actions = {
 	},
 
 	[action.SAVE]: function ({ commit }, task) {
-		return Vue.http.post(`/api/task/save`, task)
+		return Vue.http.put(`/api/task/save`, task)
 			.then(res => {
 				const task = res.body;
 				commit(mutation.CHANGE, task);

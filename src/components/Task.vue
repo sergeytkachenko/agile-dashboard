@@ -5,6 +5,10 @@
 		<md-card-content>
 			{{ task.name }}
 		</md-card-content>
+		<md-card-actions style="padding-top: 0">
+			<span class="tag"
+			           v-for="tag in task.tags">{{ tag }}</span>
+		</md-card-actions>
 	</md-card>
 </template>
 
